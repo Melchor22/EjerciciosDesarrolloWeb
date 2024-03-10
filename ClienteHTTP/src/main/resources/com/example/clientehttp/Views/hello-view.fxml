@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.web.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Button?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.clientehttp.Controllers.HelloController">
+   <children>
+      <ComboBox fx:id="cbMetodo" layoutX="42.0" layoutY="40.0" prefHeight="46.0" prefWidth="273.0" promptText="Seleccione una opción" style="-fx-background-color: white; -fx-border-color: BFBFBF; -fx-background-radius: 20; -fx-border-radius: 20;" stylesheets="@combobox.css" />
+      <Label layoutX="343.0" layoutY="48.0" text="URL:">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <TextField fx:id="tfURL" layoutX="393.0" layoutY="41.0" prefHeight="44.0" prefWidth="663.0" promptText="Inserta una URL" style="-fx-background-radius: 20;">
+         <font>
+            <Font size="20.0" />
+         </font></TextField>
+      <Button layoutX="1084.0" layoutY="38.0" mnemonicParsing="false" onAction="#btnConsultar" prefHeight="50.0" prefWidth="160.0" style="-fx-background-color: #1870CA; -fx-background-radius: 20; -fx-text-fill: white;" text="Consultar">
+         <graphic>
+            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Resources/search.png" />
+               </image></ImageView>
+         </graphic>
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font></Button>
+      <Label layoutX="42.0" layoutY="101.0" text="Respuesta HTTP:">
+         <font>
+            <Font size="20.0" />
+         </font></Label>
+      <Label fx:id="lbRespuestaHTTP" layoutX="198.0" layoutY="101.0">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="42.0" layoutY="152.0" text="Mostrar Contenido:">
+         <font>
+            <Font size="20.0" />
+         </font></Label>
+      <RadioButton fx:id="rbRaw" layoutX="232.0" layoutY="152.0" mnemonicParsing="false" text="Raw">
+         <font>
+            <Font size="20.0" />
+         </font></RadioButton>
+      <RadioButton fx:id="rbPretty" layoutX="319.0" layoutY="149.0" mnemonicParsing="false" text="Pretty">
+         <font>
+            <Font size="20.0" />
+         </font></RadioButton>
+      <Label layoutX="448.0" layoutY="152.0" text="Tipo de Contenido:">
+         <font>
+            <Font size="20.0" />
+         </font></Label>
+      <Label fx:id="lbTipoContenido" layoutX="622.0" layoutY="154.0">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font></Label>
+      <Button layoutX="1004.0" layoutY="142.0" mnemonicParsing="false" onAction="#btnGuardarRespuesta" prefHeight="50.0" prefWidth="240.0" style="-fx-background-color: #379D30; -fx-background-radius: 20; -fx-text-fill: white;" text="Guardar Respuesta">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Resources/floppy-disc.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <TabPane layoutX="16.0" layoutY="220.0" prefHeight="489.0" prefWidth="1252.0" style="-fx-background-color: white;" stylesheets="@tabs.css" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Cabeceras/Headers">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="309.0" prefWidth="695.0">
+                     <children>
+                        <TextArea fx:id="taHeaders" prefHeight="444.0" prefWidth="1252.0" />
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+          <Tab fx:id="tabBody" text="Body/Cuerpo">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <WebView fx:id="pWebView" prefHeight="445.0" prefWidth="1252.0" />
+                        <TextArea fx:id="pTextArea" prefHeight="444.0" prefWidth="1252.0" />
+                        <ImageView fx:id="ivBody" fitHeight="444.0" fitWidth="1252.0" pickOnBounds="true" preserveRatio="true" />
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>
